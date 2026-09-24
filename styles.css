@@ -669,52 +669,53 @@ a {
   margin-bottom: 40px;
 }
 
-/* EXECUTIVE PRICE BANNER */
+/* EXECUTIVE PRICE BANNER (POSITIONED BELOW THE INCLUSIONS) */
 .package-price-banner {
   background: linear-gradient(135deg, var(--primary-deep) 0%, #034E52 50%, #05888C 100%);
-  padding: 32px 24px;
+  padding: 36px 24px;
   text-align: center;
   color: #FFFFFF;
-  border-bottom: 3px solid var(--secondary);
+  border-top: 3px solid var(--secondary);
 }
 
 .price-ribbon-pill {
   display: inline-flex;
   align-items: baseline;
-  gap: 10px;
-  background: rgba(2, 44, 46, 0.85);
-  border: 2px solid var(--secondary);
-  padding: 12px 32px;
+  gap: 8px;
+  background: rgba(2, 44, 46, 0.88);
+  border: 1.5px solid var(--secondary);
+  padding: 8px 24px;
   border-radius: var(--radius-full);
-  box-shadow: 0 8px 24px rgba(245, 188, 1, 0.3);
+  box-shadow: 0 4px 16px rgba(245, 188, 1, 0.2);
   margin-bottom: 12px;
 }
 
 .ribbon-label {
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   font-weight: 800;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   color: var(--secondary);
 }
 
 .ribbon-amount {
-  font-size: 2.1rem;
+  font-size: 1.55rem;
   font-weight: 900;
   color: #FFFFFF;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.3px;
 }
 
 .ribbon-unit {
-  font-size: 1rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.85);
 }
 
 .price-banner-sub {
-  font-size: 0.95rem;
+  font-size: 0.94rem;
   color: #D3ECEE;
   max-width: 650px;
-  margin: 0 auto;
+  margin: 0 auto 22px;
+  line-height: 1.5;
 }
 
 /* 8 CORE INCLUSIONS GRID */
@@ -827,14 +828,40 @@ a {
 
 /* PACKAGE ACTION FOOTER */
 .package-action-footer {
-  text-align: center;
-  padding: 28px 24px 36px;
-  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 0;
+  background: transparent;
 }
 
 .btn-package-cta {
-  padding: 16px 36px;
-  font-size: 1.05rem;
+  padding: 16px 40px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 24px rgba(245, 188, 1, 0.4);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.btn-package-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(245, 188, 1, 0.55);
+}
+
+.pkg-trust-footnote {
+  font-size: 0.82rem;
+  color: #D3ECEE;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.9;
 }
 
 /* PACKAGE REASSURANCE BOTTOM BAR */
@@ -1420,10 +1447,8 @@ a {
     padding: 24px 16px;
   }
   .price-ribbon-pill {
-    padding: 10px 20px;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
+    padding: 6px 18px;
+    gap: 6px;
   }
   .steps-timeline {
     grid-template-columns: 1fr;
