@@ -17,11 +17,49 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileBtn = document.getElementById('mobileMenuBtn');
   const navLinks = document.getElementById('navLinks');
   
-  if (mobileBtn && navLinks) {
-    mobileBtn.addEventListener('click', () => {
+  function closeMobileNav() {
+    if (navLinks && navLinks.classList.contains('active')) {
+      navLinks.classList.remove('active');
+      if (mobileBtn) {
+        mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        mobileBtn.setAttribute('aria-expanded', 'false');
+      }
+    }
+  }
+
+  function toggleMobileNav(e) {
+    if (e) e.stopPropagation();
+    if (navLinks && mobileBtn) {
+      const isExpanding = !navLinks.classList.contains('active');
       navLinks.classList.toggle('active');
-      const isExpanded = navLinks.classList.contains('active');
-      mobileBtn.innerHTML = isExpanded ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+      mobileBtn.innerHTML = isExpanding ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+      mobileBtn.setAttribute('aria-expanded', isExpanding ? 'true' : 'false');
+    }
+  }
+
+  if (mobileBtn && navLinks) {
+    mobileBtn.setAttribute('aria-expanded', 'false');
+    mobileBtn.addEventListener('click', toggleMobileNav);
+
+    // Close when clicking outside header / nav
+    document.addEventListener('click', (e) => {
+      if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !mobileBtn.contains(e.target)) {
+        closeMobileNav();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeMobileNav();
+      }
+    });
+
+    // Close if resized to desktop width
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        closeMobileNav();
+      }
     });
   }
 
