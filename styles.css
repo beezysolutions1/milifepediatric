@@ -1603,18 +1603,24 @@ a {
   .header-actions {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     flex-shrink: 0;
   }
 
+  .header-actions .btn-nav-cta,
   .header-actions .btn-sm {
     display: none;
   }
 
+  /* Prevent iOS Safari automatic zoom on inputs */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+
   .lang-switcher-btn {
-    padding: 4px 10px;
-    font-size: 0.76rem;
-    height: 34px;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    height: 36px;
     border-radius: var(--radius-full);
     display: inline-flex;
     align-items: center;
